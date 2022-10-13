@@ -1,5 +1,6 @@
-// https://go101.org/article/reflection.html
 package main
+
+// https://go101.org/article/reflection.html
 
 import (
 	"fmt"
@@ -77,6 +78,21 @@ func reflectStruct() {
 }
 
 func reflectType() {
+	type MyInt int
+	var m1 int = 10
+	tm1 := reflect.TypeOf(m1)
+	kindOfTm1 := tm1.Kind()
+	fmt.Println(kindOfTm1)
+
+	var m2 MyInt = 11
+	tm2 := reflect.TypeOf(m2)
+	fmt.Println(tm2.Kind()) // Kind return the underlying data type is int
+
+	m3 := "string"
+	tm3 := reflect.TypeOf(m3)
+	kindOfTm3 := tm3.Kind()
+	fmt.Println(kindOfTm3) // Kind return the underlying data type is int
+
 	type A = [16]int16
 	var c <-chan map[A][]byte
 
