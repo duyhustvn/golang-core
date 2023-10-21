@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func leak() {
+func leakReadChan() {
 	doWork := func(strings <-chan string) <-chan interface{} {
 		completed := make(chan interface{})
 
@@ -27,7 +27,7 @@ func leak() {
 	fmt.Println("Done")
 }
 
-func prevenLeak() {
+func prevenLeakReadChan() {
 	doWork := func(done <-chan interface{}, strings <-chan string) <-chan interface{} {
 		terminated := make(chan interface{})
 
@@ -58,8 +58,4 @@ func prevenLeak() {
 	}()
 
 	<-terminated
-}
-
-func main() {
-	prevenLeak()
 }
