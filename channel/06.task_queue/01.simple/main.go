@@ -32,7 +32,7 @@ func main() {
 	go func() {
 		for i := 21; i < 1000; i++ {
 			printTask := task.NewPrintTask(fmt.Sprintf("hello %d", i))
-			taskQueue.Enqueue <- printTask
+			taskQueue.RegisterTask(printTask)
 		}
 	}()
 

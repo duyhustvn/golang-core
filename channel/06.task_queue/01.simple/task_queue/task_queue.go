@@ -14,6 +14,10 @@ func NewTaskQueue() *TaskQueue {
 	return &TaskQueue{Task: make([]task.Task, 0), Enqueue: make(chan task.Task), Dequeue: make(chan task.Task)}
 }
 
+func (tq *TaskQueue) RegisterTask(taskFn task.Task) {
+	tq.Enqueue <- taskFn
+}
+
 func (tq *TaskQueue) Start() {
 	// Handle add task to queue
 	go func() {
