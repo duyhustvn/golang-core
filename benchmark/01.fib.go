@@ -1,4 +1,4 @@
-package main
+package bm
 
 func fibRecur(n int) int {
 	if n <= 1 {

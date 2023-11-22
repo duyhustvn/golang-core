@@ -1,6 +1,8 @@
-package main
+package bm
 
-import "testing"
+import (
+	"testing"
+)
 
 /*
 Run: BenchmarkFibRecursion10
@@ -28,12 +30,12 @@ Explain:
 
 var result int
 
-func BenchmarkFibRecursion50(b *testing.B) {
+func BenchmarkFibRecursion25(b *testing.B) {
 	var r int
 	for i := 0; i < b.N; i++ {
 		// always record the result of Fib to prevent
 		// the compiler eliminating the function call.
-		r = fibRecur(50)
+		r = fibRecur(25)
 	}
 
 	// always store the result to a package level variable
@@ -41,11 +43,11 @@ func BenchmarkFibRecursion50(b *testing.B) {
 	result = r
 }
 
-func BenchmarkFibRecursionMemo50(b *testing.B) {
+func BenchmarkFibRecursionMemo25(b *testing.B) {
 	var r int
 	for i := 0; i < b.N; i++ {
 		memo := make(map[int]int)
-		r = fibRecurMemo(50, memo)
+		r = fibRecurMemo(25, memo)
 	}
 	result = r
 }

@@ -4,7 +4,7 @@ bench-all:
 	go test -bench=.
 
 bench-recursion:
-	go test -bench=BenchmarkFibRecursion10
+	go test -bench=BenchmarkFibRecursion25
 
 bench-recursion-memo:
-	go test -bench=BenchmarkFibRecursionMemo10
+	go test -bench=BenchmarkFibRecursionMemo25
